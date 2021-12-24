@@ -11,8 +11,13 @@
 </head>
 
 <body>
-    {% for job in jobs %}
     <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="email" placeholder="Введите Email" name="email">
+            <button>Подписаться</button>
+        </form>
+        {% for job in jobs %}
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ job.title }}</h5>
@@ -21,8 +26,8 @@
                 <h6 class="card-title">{{ job.price }}</h6>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </body>
 
 </html>
